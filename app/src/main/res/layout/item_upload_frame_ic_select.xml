@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/normal_10dp"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/normal_160dp"
+    android:layout_margin="@dimen/normal_10dp"
+    android:scaleType="centerInside"/>

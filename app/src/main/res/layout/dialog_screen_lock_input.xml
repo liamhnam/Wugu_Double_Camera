@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:background="@drawable/shape_bg_input"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/negative_60dp"
+        android:layout_marginBottom="@dimen/negative_30dp"
+        android:layout_marginStart="@dimen/negative_100dp"
+        android:layout_marginEnd="@dimen/negative_100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_num_keyboard"
+        app:layout_constraintEnd_toEndOf="@+id/layout_num_keyboard"
+        app:layout_constraintStart_toStartOf="@+id/layout_num_keyboard"
+        app:layout_constraintTop_toTopOf="@+id/et_input_code"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:textSize="@dimen/normal_34sp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:id="@+id/et_input_code"
+        android:background="@drawable/shape_et_input"
+        android:paddingTop="@dimen/normal_5dp"
+        android:paddingBottom="@dimen/normal_5dp"
+        android:focusable="false"
+        android:layout_width="@dimen/normal_300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_80dp"
+        android:layout_marginTop="@dimen/normal_300dp"
+        android:layout_marginRight="@dimen/normal_80dp"
+        android:hint="@string/input_pwd"
+        android:maxLength="12"
+        android:layout_marginHorizontal="@dimen/normal_80dp"
+        android:paddingVertical="@dimen/normal_5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.wugu.doublecamera.custom.NumKeyboard
+        android:id="@+id/layout_num_keyboard"
+        android:layout_width="300px"
+        android:layout_height="320px"
+        android:layout_marginTop="@dimen/normal_30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_input_code"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+package kotlin.reflect.jvm.internal.impl.types;
+
+import kotlin.NoWhenBranchMatchedException;
+import kotlin.jvm.internal.Intrinsics;
+
+public final class FlexibleTypesKt {
+    public static final boolean isFlexible(KotlinType kotlinType) {
+        Intrinsics.checkNotNullParameter(kotlinType, "<this>");
+        return kotlinType.unwrap() instanceof FlexibleType;
+    }
+
+    public static final FlexibleType asFlexibleType(KotlinType kotlinType) {
+        Intrinsics.checkNotNullParameter(kotlinType, "<this>");
+        return (FlexibleType) kotlinType.unwrap();
+    }
+
+    public static final SimpleType lowerIfFlexible(KotlinType kotlinType) {
+        Intrinsics.checkNotNullParameter(kotlinType, "<this>");
+        UnwrappedType unwrappedTypeUnwrap = kotlinType.unwrap();
+        if (unwrappedTypeUnwrap instanceof FlexibleType) {
+            return ((FlexibleType) unwrappedTypeUnwrap).getLowerBound();
+        }
+        if (unwrappedTypeUnwrap instanceof SimpleType) {
+            return (SimpleType) unwrappedTypeUnwrap;
+        }
+        throw new NoWhenBranchMatchedException();
+    }
+
+    public static final SimpleType upperIfFlexible(KotlinType kotlinType) {
+        Intrinsics.checkNotNullParameter(kotlinType, "<this>");
+        UnwrappedType unwrappedTypeUnwrap = kotlinType.unwrap();
+        if (unwrappedTypeUnwrap instanceof FlexibleType) {
+            return ((FlexibleType) unwrappedTypeUnwrap).getUpperBound();
+        }
+        if (unwrappedTypeUnwrap instanceof SimpleType) {
+            return (SimpleType) unwrappedTypeUnwrap;
+        }
+        throw new NoWhenBranchMatchedException();
+    }
+}

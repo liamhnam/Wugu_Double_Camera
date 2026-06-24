@@ -1,0 +1,62 @@
+package kotlinx.coroutines;
+
+import kotlin.Metadata;
+import kotlin.coroutines.Continuation;
+import kotlin.jvm.internal.Intrinsics;
+import kotlinx.coroutines.scheduling.Task;
+import org.eclipse.paho.android.service.MqttServiceConstants;
+
+@Metadata(m1292d1 = {"\u00004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0003\n\u0002\b\u000e\b \u0018\u0000*\u0006\b\u0000\u0010\u0001 \u00002\u00060\u0002j\u0002`\u0003B\r\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u001f\u0010\u000b\u001a\u00020\f2\b\u0010\r\u001a\u0004\u0018\u00010\u000e2\u0006\u0010\u000f\u001a\u00020\u0010H\u0010¢\u0006\u0002\b\u0011J\u0019\u0010\u0012\u001a\u0004\u0018\u00010\u00102\b\u0010\u0013\u001a\u0004\u0018\u00010\u000eH\u0010¢\u0006\u0002\b\u0014J\u001f\u0010\u0015\u001a\u0002H\u0001\"\u0004\b\u0001\u0010\u00012\b\u0010\u0013\u001a\u0004\u0018\u00010\u000eH\u0010¢\u0006\u0004\b\u0016\u0010\u0017J\u001a\u0010\u0018\u001a\u00020\f2\b\u0010\u0019\u001a\u0004\u0018\u00010\u00102\b\u0010\u001a\u001a\u0004\u0018\u00010\u0010J\u0006\u0010\u001b\u001a\u00020\fJ\u000f\u0010\u001c\u001a\u0004\u0018\u00010\u000eH ¢\u0006\u0002\b\u001dR\u0018\u0010\u0007\u001a\b\u0012\u0004\u0012\u00028\u00000\bX \u0004¢\u0006\u0006\u001a\u0004\b\t\u0010\nR\u0012\u0010\u0004\u001a\u00020\u00058\u0006@\u0006X\u0087\u000e¢\u0006\u0002\n\u0000¨\u0006\u001e"}, m1293d2 = {"Lkotlinx/coroutines/DispatchedTask;", "T", "Lkotlinx/coroutines/scheduling/Task;", "Lkotlinx/coroutines/SchedulerTask;", "resumeMode", "", "(I)V", "delegate", "Lkotlin/coroutines/Continuation;", "getDelegate$kotlinx_coroutines_core", "()Lkotlin/coroutines/Continuation;", "cancelCompletedResult", "", "takenState", "", "cause", "", "cancelCompletedResult$kotlinx_coroutines_core", "getExceptionalResult", "state", "getExceptionalResult$kotlinx_coroutines_core", "getSuccessfulResult", "getSuccessfulResult$kotlinx_coroutines_core", "(Ljava/lang/Object;)Ljava/lang/Object;", "handleFatalException", MqttServiceConstants.TRACE_EXCEPTION, "finallyException", "run", "takeState", "takeState$kotlinx_coroutines_core", "kotlinx-coroutines-core"}, m1294k = 1, m1295mv = {1, 6, 0}, m1297xi = 48)
+public abstract class DispatchedTask<T> extends Task {
+    public int resumeMode;
+
+    public void cancelCompletedResult$kotlinx_coroutines_core(Object takenState, Throwable cause) {
+    }
+
+    public abstract Continuation<T> getDelegate$kotlinx_coroutines_core();
+
+    public <T> T getSuccessfulResult$kotlinx_coroutines_core(Object state) {
+        return state;
+    }
+
+    public abstract Object takeState$kotlinx_coroutines_core();
+
+    public DispatchedTask(int i) {
+        this.resumeMode = i;
+    }
+
+    public Throwable getExceptionalResult$kotlinx_coroutines_core(Object state) {
+        CompletedExceptionally completedExceptionally = state instanceof CompletedExceptionally ? (CompletedExceptionally) state : null;
+        if (completedExceptionally != null) {
+            return completedExceptionally.cause;
+        }
+        return null;
+    }
+
+    @Override
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+        To view partially-correct add '--show-bad-code' argument
+    */
+    public final void run() {
+        /*
+            Method dump skipped, instruction units count: 267
+            To view this dump add '--comments-level debug' option
+        */
+        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.DispatchedTask.run():void");
+    }
+
+    public final void handleFatalException(Throwable exception, Throwable finallyException) {
+        if (exception == null && finallyException == null) {
+            return;
+        }
+        if (exception != null && finallyException != null) {
+            kotlin.ExceptionsKt.addSuppressed(exception, finallyException);
+        }
+        if (exception == null) {
+            exception = finallyException;
+        }
+        Intrinsics.checkNotNull(exception);
+        CoroutineExceptionHandlerKt.handleCoroutineException(getDelegate$kotlinx_coroutines_core().getContext(), new CoroutinesInternalError("Fatal exception in coroutines machinery for " + this + ". Please read KDoc to 'handleFatalException' method and report this incident to maintainers", exception));
+    }
+}

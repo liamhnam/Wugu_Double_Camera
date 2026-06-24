@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_back"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_close"
+        android:layout_marginEnd="@dimen/normal_10dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_countdown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.wugu.doublecamera.custom.StrokeTextView
+        android:textSize="@dimen/normal_42sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:id="@+id/tv_countdown"
+        android:focusable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="@dimen/normal_70dp"
+        android:alpha="0.5"
+        android:letterSpacing="0.03"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_back"
+        app:strokeColor="#ffffff"
+        app:strokeWidth="5dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

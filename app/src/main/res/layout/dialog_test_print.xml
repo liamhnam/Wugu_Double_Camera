@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:id="@+id/dialog_view"
+    android:padding="@dimen/normal_20dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="@dimen/normal_400dp">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textSize="@dimen/normal_36sp"
+        android:textColor="@color/white"
+        android:id="@+id/tv_tips"
+        android:layout_width="@dimen/normal_500dp"
+        android:layout_height="wrap_content"
+        android:text="@string/test_print_tips"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_picture"
+        android:layout_width="@dimen/normal_600dp"
+        android:layout_height="@dimen/normal_800dp"
+        android:layout_margin="@dimen/normal_10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tips"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textSize="@dimen/normal_36sp"
+        android:textColor="@color/white"
+        android:id="@+id/tv_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.03"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

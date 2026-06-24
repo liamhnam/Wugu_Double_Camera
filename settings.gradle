@@ -1,0 +1,3 @@
+rootProject.name = '双拍机'
+
+include 'app'

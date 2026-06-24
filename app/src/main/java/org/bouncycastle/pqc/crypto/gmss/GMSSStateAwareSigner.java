@@ -1,0 +1,56 @@
+package org.bouncycastle.pqc.crypto.gmss;
+
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.Digest;
+import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+import org.bouncycastle.crypto.params.ParametersWithRandom;
+import org.bouncycastle.pqc.crypto.StateAwareMessageSigner;
+import org.bouncycastle.util.Memoable;
+
+public class GMSSStateAwareSigner implements StateAwareMessageSigner {
+    private final GMSSSigner gmssSigner;
+    private GMSSPrivateKeyParameters key;
+
+    public GMSSStateAwareSigner(Digest digest) {
+        if (!(digest instanceof Memoable)) {
+            throw new IllegalArgumentException("digest must implement Memoable");
+        }
+        final Memoable memoableCopy = ((Memoable) digest).copy();
+        this.gmssSigner = new GMSSSigner(new GMSSDigestProvider() {
+            @Override
+            public Digest get() {
+                return (Digest) memoableCopy.copy();
+            }
+        });
+    }
+
+    @Override
+    public byte[] generateSignature(byte[] bArr) {
+        if (this.key == null) {
+            throw new IllegalStateException("signing key no longer usable");
+        }
+        byte[] bArrGenerateSignature = this.gmssSigner.generateSignature(bArr);
+        this.key = this.key.nextKey();
+        return bArrGenerateSignature;
+    }
+
+    @Override
+    public AsymmetricKeyParameter getUpdatedPrivateKey() {
+        GMSSPrivateKeyParameters gMSSPrivateKeyParameters = this.key;
+        this.key = null;
+        return gMSSPrivateKeyParameters;
+    }
+
+    @Override
+    public void init(boolean z, CipherParameters cipherParameters) {
+        if (z) {
+            this.key = cipherParameters instanceof ParametersWithRandom ? (GMSSPrivateKeyParameters) ((ParametersWithRandom) cipherParameters).getParameters() : (GMSSPrivateKeyParameters) cipherParameters;
+        }
+        this.gmssSigner.init(z, cipherParameters);
+    }
+
+    @Override
+    public boolean verifySignature(byte[] bArr, byte[] bArr2) {
+        return this.gmssSigner.verifySignature(bArr, bArr2);
+    }
+}

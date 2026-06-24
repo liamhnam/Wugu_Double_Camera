@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.wugu.doublecamera.custom.CountdownView
+        android:id="@+id/layout_countdown"
+        android:layout_width="@dimen/countdown_view_w"
+        android:layout_height="@dimen/countdown_view_h"
+        android:layout_x="15px"
+        android:layout_y="15px"/>
+    <com.wugu.doublecamera.custom.CameraView
+        android:id="@+id/layout_camera"
+        android:layout_width="1100px"
+        android:layout_height="730px"
+        android:layout_x="280px"
+        android:layout_y="200px"
+        android:elevation="@dimen/normal_6dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_filter"
+        android:layout_width="180px"
+        android:layout_height="560px"
+        android:layout_x="1535px"
+        android:layout_y="180px"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_start_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:layout_x="1535px"
+        android:layout_y="820px"/>
+</AbsoluteLayout>

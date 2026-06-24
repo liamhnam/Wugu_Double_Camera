@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="@dimen/normal_52sp"
+    android:textColor="@color/white"
+    android:gravity="center"
+    android:id="@+id/toast_message"
+    android:background="@drawable/shape_toast"
+    android:paddingLeft="@dimen/normal_40dp"
+    android:paddingTop="@dimen/normal_60dp"
+    android:paddingRight="@dimen/normal_40dp"
+    android:paddingBottom="@dimen/normal_60dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/normal_40dp"
+    android:paddingVertical="@dimen/normal_60dp"/>

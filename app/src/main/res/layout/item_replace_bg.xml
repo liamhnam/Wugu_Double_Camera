@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="240px"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10px"
+    android:layout_marginTop="10px"
+    android:layout_marginRight="10px"
+    android:layout_marginBottom="10px"
+    android:scaleType="centerInside"
+    android:layout_marginHorizontal="10px"
+    android:layout_marginVertical="10px"/>

@@ -1,0 +1,27 @@
+package p066do.p026do.p028if.p029do.p030if;
+
+import android.net.nsd.NsdServiceInfo;
+import com.p020hp.mobile.common.browsing.ServicesBrowser;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Lambda;
+
+public final class Cfinal extends Lambda implements Function2<NsdServiceInfo, Boolean, Unit> {
+
+    public final ServicesBrowser f2526if;
+
+    public Cfinal(ServicesBrowser servicesBrowser) {
+        super(2);
+        this.f2526if = servicesBrowser;
+    }
+
+    @Override
+    public Unit invoke(NsdServiceInfo nsdServiceInfo, Boolean bool) {
+        NsdServiceInfo info = nsdServiceInfo;
+        boolean zBooleanValue = bool.booleanValue();
+        Intrinsics.checkNotNullParameter(info, "info");
+        this.f2526if.handleServiceInfo(info, zBooleanValue);
+        return Unit.INSTANCE;
+    }
+}

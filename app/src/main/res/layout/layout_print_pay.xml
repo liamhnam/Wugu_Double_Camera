@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textSize="@dimen/normal_32sp"
+        android:textColor="@color/sign_red"
+        android:gravity="center"
+        android:id="@+id/tv_payment_text"
+        android:layout_width="100px"
+        android:layout_height="wrap_content"
+        android:layout_x="240px"
+        android:layout_y="65px"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_pay_qrcode"
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:layout_x="0px"
+        android:layout_y="140px"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textSize="@dimen/normal_32sp"
+        android:gravity="center"
+        android:id="@+id/tv_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="0px"
+        android:layout_y="350px"/>
+</AbsoluteLayout>
