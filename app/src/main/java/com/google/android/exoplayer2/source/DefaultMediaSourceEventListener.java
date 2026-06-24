@@ -1,5 +1,0 @@
-package com.google.android.exoplayer2.source;
-
-@Deprecated
-public abstract class DefaultMediaSourceEventListener implements MediaSourceEventListener {
-}
